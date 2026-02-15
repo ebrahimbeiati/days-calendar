@@ -1,9 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <script type="module" src="common.mjs"></script>
-        <script type="module" src="web.mjs"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Days Calendar</title>
     </head>
     <body>
+        <h1>Project Days Calendar</h1>
+
+        <table aria-label="Calendar">
+            <thead>
+                <tr>
+                    <th scope="col">Sun</th>
+                    <th scope="col">Mon</th>
+                    <th scope="col">Tue</th>
+                    <th scope="col">Wed</th>
+                    <th scope="col">Thu</th>
+                    <th scope="col">Fri</th>
+                    <th scope="col">Sat</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body"></tbody>
+        </table>
+        <script type="module" src="./main.mjs"></script>
     </body>
+        
 </html>
