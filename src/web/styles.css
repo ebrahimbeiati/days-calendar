@@ -1,47 +1,19 @@
-/* Basic table layout */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 600px;
-  margin: 1em 0;
-  text-align: center;
+.calendar-table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
 }
 
-/* Table headers */
-th {
-  border-bottom: 2px solid #000;
-  padding: 0.5em;
+.calendar-table th, .calendar-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
 }
 
-/* Table cells */
-td {
-  border: 1px solid #ccc;
-  padding: 0.5em;
-  min-width: 40px;
-  height: 40px;
-  vertical-align: top;
+.not-current-month {
+    color: #999;
 }
 
-/* Special day labels */
-.special-day {
-  background-color: #fffae6;
-  font-weight: bold;
-  margin-top: 2px;
-  padding: 2px;
-  display: block;
-  font-size: 0.8em;
-  border-radius: 3px;
-}
-
-/* Buttons */
-button {
-  padding: 0.4em 0.8em;
-  margin: 0.2em;
-  cursor: pointer;
-}
-
-/* Selects */
-select {
-  margin: 0 0.5em;
-  padding: 0.3em;
+.commemorative-day {
+    background-color: #ffd700;
+    cursor: pointer;
 }
