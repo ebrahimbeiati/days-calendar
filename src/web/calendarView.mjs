@@ -8,7 +8,7 @@ let today = new Date();
 let currentMonth = today.getUTCMonth();
 let currentYear = today.getUTCFullYear();
 
-function generateCalendar(month,year) {
+export function generateCalendar(month,year) {
     calendarEl.innerHTML =''; // clear previous calender
 
     // show month and year
