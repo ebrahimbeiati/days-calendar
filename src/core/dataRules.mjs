@@ -23,7 +23,7 @@ function weekdayStringToNumber(weekday) {
         "Thursday": 4,
         "Friday": 5,
         "Saturday": 6
-    };  
+    };  return weekdays[weekday.toLowerCase()];
 }
 // Returning an array of commemorative days for a given year
 export function getCommemorativeDaysForYear(year, daysData ){
