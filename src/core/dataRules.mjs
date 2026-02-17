@@ -13,6 +13,18 @@ export function getNthWeekdayOfMonth(year, month, weekday, n) {
         return new Date(year, month, 1 + diff + (n - 1) * 7);
     }
 }
+
+function weekdayStringToNumber(weekday) {
+    const weekdays = {
+        "Sunday": 0,
+        "Monday": 1,
+        "Tuesday": 2,
+        "Wednesday": 3,
+        "Thursday": 4,
+        "Friday": 5,
+        "Saturday": 6
+    };  
+}
 // Returning an array of commemorative days for a given year
 export function getCommemorativeDaysForYear(year, daysData ){
     return daysData.map(day => {
