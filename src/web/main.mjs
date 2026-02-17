@@ -1,6 +1,6 @@
 import {generateCalendar} from "./calendarView.mjs";
 import { getCommemorativeDaysForYear } from "../core/dataRules.mjs";
-import daysData from "./days.json" with { type: "json" };
+import daysData from "../data/days.json" with { type: "json" };
 
 let currentYear = new Date().getUTCFullYear();
 let currentMonth = new Date().getUTCMonth(); // 0-11
@@ -38,7 +38,7 @@ function initDropdowns() {
          //Render current calendar
          function updateCalendar() {
              const commemorativeDays = getCommemorativeDaysForYear(currentYear, daysData);
-             renderCalendar(calendarContainer, currentYear, currentMonth, commemorativeDays);
+             generateCalendar(calendarContainer, currentYear, currentMonth, commemorativeDays);
             }
 
             //Event listeners
