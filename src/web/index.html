@@ -1,23 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Commemorative Days Calendar</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div>
-        <h1 id="monthYear"> </h1>
-    </div>
-    <div>
-        <button id="prev-month">Previous</button>
-        <select id="month-select"></select>
-        <select id="year-select"></select>
-        <button id="next-month">Next</button>
-    </div>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main-content">
+      <h1 id="monthYear">Loading...</h1>
+      <p id="today-date"></p>
+      <div class="controls">
+        <button id="prev-month" type="button" aria-label="Previous month">
+          ← Previous
+        </button>
 
-    <div id="calendar-container"></div>
+        <div class="control-group">
+          <label for="month-select">Month:</label>
+          <select id="month-select" aria-label="Select month"></select>
+        </div>
 
-    <script type="module" src="main.mjs"></script>
-</body>
+        <div class="control-group">
+          <label for="year-select">Year:</label>
+          <select id="year-select" aria-label="Select year"></select>
+        </div>
+
+        <button id="next-month" type="button" aria-label="Next month">
+          Next →
+        </button>
+      </div>
+
+      <div
+        id="calendar-container"
+        role="grid"
+        aria-labelledby="monthYear"
+        aria-live="polite"
+      ></div>
+
+      <script type="module" src="main.mjs"></script>
+    </main>
+  </body>
 </html>
