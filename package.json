@@ -1,8 +1,9 @@
 {
   "name": "project-days-calendar",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "test": "node common.test.mjs",
+    "test": "node ./src/tests/dateRules.tests.mjs",
     "generate-ical": "node src/node/generate-ical.mjs"
 
   }
