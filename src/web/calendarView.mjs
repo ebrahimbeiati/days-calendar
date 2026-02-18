@@ -38,7 +38,7 @@ function displayTodaysDate() {
     "Friday",
     "Saturday",
   ];
-  const dayName = dayOfWeekNames[todayUTC.month];
+ 
   todayDateEl.textContent = `Today: ${dayOfWeekNames[new Date().getUTCDay()]} ${monthNames[todayUTC.month]} ${todayUTC.day} ${todayUTC.year}`;
 }
 
@@ -84,7 +84,7 @@ export function generateCalendar(month, year, commemorativeDays = []) {
   // Total cells needed
   const totalCells = firstWeekday + daysInMonth;
   const trailingEmpty = (7 - (totalCells % 7)) % 7;
-  const totalDaysToShow = firstWeekday + daysInMonth + trailingEmpty;
+ 
 
   // Create weeks with rows
   let cellCount = 0;
