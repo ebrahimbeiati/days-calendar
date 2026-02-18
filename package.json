@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node ./src/tests/dateRules.tests.mjs",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "generate-ical": "node src/node/generate-ical.mjs"
-
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }
