@@ -131,3 +131,159 @@ Text for Ada Lovelace Day (which must be fetched via API):
 ## Working in a group
 
 If you working in a group, we recommend that **all** team members read the [Working in a group guidelines](https://github.com/CodeYourFuture/The-Piscine/blob/main/working-in-a-group.md). Confirm all group members have read and understand these before starting to write code.
+
+## Commemorative Days Calendar
+
+This is a JavaScript web application that displays a calendar highlighting commemorative days, which follow specific patterns (like the second Tuesday of October).
+## Getting started
+Clone the repository:
+
+git clone <https://github.com/ebrahimbeiati/days-calendar.git>
+
+
+Navigate to the project directory:
+
+cd project-days-calendar
+
+
+Install dependencies:
+
+npm install
+
+
+(Optional) If you have tests:
+
+npm test
+## Project Structure
+
+```
+project-days-calendar/
+├── src/
+│   ├── core/
+│   │   ├── calendarUtils.mjs
+│   │   └── dataRules.mjs
+│   │
+│   ├── data/
+│   │   └── days.json
+│   │
+│   ├── node/
+│   │   └── generate-ical.mjs
+│   │
+│   ├── test/
+│   │   └── dataRules.test.mjs
+│   │
+│   └── web/
+│       ├── index.html
+│       ├── styles.css
+│       ├── main.mjs
+│       └── calendarView.mjs
+```
+
+When GitHub renders this, it will look perfectly aligned.
+
+Step 3 — What went wrong in your current README
+
+One of these happened:
+
+the backticks were missing
+
+the backticks were mismatched
+
+the tree was pasted without a code fence
+
+Markdown then tries to “help” — and ruins the formatting.
+
+This is extremely common. Not a mistake, just formatting.
+
+Step 4 — Is this a problem for MPC submission?
+
+No — as long as you fix it.
+
+Assessors care about:
+
+clarity
+
+correctness
+
+ease of understanding
+
+A clean tree inside a code block is exactly what they expect.
+
+A squashed tree looks careless, even if the code is good.
+
+So yes, fixing this is worth it.
+
+Step 5 — One rule to remember for README files
+
+Anything that depends on spacing must go inside triple backticks.
+
+That includes:
+
+folder trees
+
+command output
+
+terminal commands
+
+configuration snippets
+
+Final answer
+
+It looks like that because the folder structure is not inside a Markdown code block.
+
+Wrap it in triple backticks and it will render correctly on GitHub.
+
+If you want, I can:
+
+rewrite the full README cleanly, ready to paste
+
+check wording to match academic marking style
+
+or sanity-check it against the rubric line by line
+
+Just tell me 👍
+
+Voice chat ended
+10m 2s
+
+## How to Run
+
+Open VS Code.
+
+In the Explorer pane, right-click the src/web folder.
+
+Choose "Open with Live Server."
+
+The calendar will load in your browser, starting with the current month.
+
+Use the Previous and Next buttons, or select a month and year, to navigate.
+
+## Features
+
+Displays a calendar grid for any month/year.
+
+Highlights commemorative days based on a JSON data source.
+
+Supports dynamic calculation of days (e.g., second Tuesday, last Friday).
+
+Fully accessible: passes Lighthouse accessibility checks.
+
+## How it Works
+
+The main state (current month and year) is managed in main.mjs.
+
+Calendar rendering logic is kept separate in calendarView.mjs.
+
+Commemorative days are calculated dynamically based on rules in dataRules.mjs and the data in days.json.
+
+A separate Node script (generateIcal.mjs) can create iCal files for all commemorative days from 2020 to 2030.
+
+Running Tests
+
+Unit tests for the date calculation logic are located in test/dataRules.test.mjs. Run them using Node with a test framework like Mocha or any other you prefer.
+
+## Notes
+
+Be mindful of daylight savings time; all date calculations use UTC to avoid timezone issues.
+
+The project is designed to be future-proof, so you can add or remove commemorative days by simply updating the days.json file.
