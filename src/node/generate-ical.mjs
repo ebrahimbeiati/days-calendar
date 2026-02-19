@@ -1,10 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { getCommemorativeDaysForYear } from "./dateRules.mjs";
+import { getCommemorativeDaysForYear } from "../core/dataRules.mjs";
 
 // Load the commemorative days JSON file
 const daysData = JSON.parse(
-  fs.readFileSync(path.resolve("./data/days.json"), "utf-8"),
+  fs.readFileSync(path.resolve("src/data/days.json"), "utf-8"),
 );
 
 // Function to format Date objects into iCal YYYYMMDD format
@@ -20,7 +20,7 @@ function generateICS(daysData, startYear = 2020, endYear = 2030) {
   // Start the VCALENDAR
   let icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//YourCompany//CommemorativeDays//EN
+PRODID:-//CYF//CommemorativeDays//EN
 CALSCALE:GREGORIAN
 `;
 
@@ -34,7 +34,7 @@ CALSCALE:GREGORIAN
       const dateStr = formatDate(day.date); // Format date for iCal
 
       icsContent += `BEGIN:VEVENT
-UID:${day.name.replace(/\s+/g, "")}-${year}@yourcompany.com
+        UID:${day.name.replace(/\s+/g, "")}-${year}@cyf.io 
 DTSTAMP:${formatDate(new Date())}T000000Z
 SUMMARY:${day.name}
 DTSTART;VALUE=DATE:${dateStr}
