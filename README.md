@@ -173,20 +173,14 @@ project-days-calendar/
 │   │   └── dataRules.test.mjs
 │   │
 │   └── web/
-│       ├── index.html
 │       ├── styles.css
 │       ├── main.mjs
 │       └── calendarView.mjs
+| ├── index.html
 ```
 
 
 ## How to Run
-
-Open VS Code.
-
-In the Explorer pane, right-click the src/web folder.
-
-Choose "Open with Live Server."
 
 The calendar will load in your browser, starting with the current month.
 
