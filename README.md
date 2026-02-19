@@ -151,7 +151,7 @@ Install dependencies:
 npm install
 
 
-(Optional) If you have tests:
+If you want to run the test:
 
 npm test
 ## Project Structure
@@ -179,72 +179,6 @@ project-days-calendar/
 │       └── calendarView.mjs
 ```
 
-When GitHub renders this, it will look perfectly aligned.
-
-Step 3 — What went wrong in your current README
-
-One of these happened:
-
-the backticks were missing
-
-the backticks were mismatched
-
-the tree was pasted without a code fence
-
-Markdown then tries to “help” — and ruins the formatting.
-
-This is extremely common. Not a mistake, just formatting.
-
-Step 4 — Is this a problem for MPC submission?
-
-No — as long as you fix it.
-
-Assessors care about:
-
-clarity
-
-correctness
-
-ease of understanding
-
-A clean tree inside a code block is exactly what they expect.
-
-A squashed tree looks careless, even if the code is good.
-
-So yes, fixing this is worth it.
-
-Step 5 — One rule to remember for README files
-
-Anything that depends on spacing must go inside triple backticks.
-
-That includes:
-
-folder trees
-
-command output
-
-terminal commands
-
-configuration snippets
-
-Final answer
-
-It looks like that because the folder structure is not inside a Markdown code block.
-
-Wrap it in triple backticks and it will render correctly on GitHub.
-
-If you want, I can:
-
-rewrite the full README cleanly, ready to paste
-
-check wording to match academic marking style
-
-or sanity-check it against the rubric line by line
-
-Just tell me 👍
-
-Voice chat ended
-10m 2s
 
 ## How to Run
 
@@ -276,7 +210,7 @@ Calendar rendering logic is kept separate in calendarView.mjs.
 
 Commemorative days are calculated dynamically based on rules in dataRules.mjs and the data in days.json.
 
-A separate Node script (generateIcal.mjs) can create iCal files for all commemorative days from 2020 to 2030.
+A separate Node script (generate-ical.mjs) can create iCal files for all commemorative days from 2020 to 2030.
 
 Running Tests
 
