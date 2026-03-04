@@ -25,8 +25,9 @@ const monthNames = [
 ];
 
 let now = new Date();
-let currentYear = now.getUTCFullYear();
-let currentMonth = now.getUTCMonth();
+// Use local time for dropdown defaults, but calendar calculations will use UTC to avoid timezone issues
+let currentYear = now.getFullYear();
+let currentMonth = now.getMonth();
 
 //Populate dropdowns
 
@@ -36,6 +37,7 @@ function initDropdowns() {
     option.value = index;
     option.textContent = name;
     if (index === currentMonth) option.selected = true;
+    
     monthSelect.appendChild(option);
   });
 
@@ -45,14 +47,27 @@ function initDropdowns() {
     option.textContent = year;
     if (year === currentYear) option.selected = true;
     yearSelect.appendChild(option);
-  }
+  }  
 }
 
 //Render current calendar
 function updateCalendar() {
+ 
+// If year doesn't exist in dropdown, add it dynamically
+  if (!yearSelect.querySelector(`option[value="${currentYear}"]`)) {
+    const option = document.createElement("option");
+    option.value = currentYear;
+    option.textContent = currentYear;
+
+    if (currentYear < 1900) {
+      yearSelect.insertBefore(option, yearSelect.firstChild); // Add at top
+    } else {
+      yearSelect.appendChild(option); // Add at bottom
+    }
+  }
+  // Update dropdowns to display current month/year (in case they were changed by prev/next buttons)
   monthSelect.value = currentMonth;
   yearSelect.value = currentYear;
-
   const commemorativeDays = getCommemorativeDaysForYear(currentYear, daysData);
   generateCalendar(currentMonth, currentYear, commemorativeDays);
 }
@@ -73,8 +88,7 @@ nextBtn.addEventListener("click", () => {
     currentMonth = 0;
     currentYear++;
   }
-  monthSelect.value = currentMonth;
-  yearSelect.value = currentYear;
+  // We reallised the job for these 2 variables is just to update the dropdowns, so we moved the updateCalendar() call here and removed it from the month/year change listeners.
   updateCalendar();
 });
 

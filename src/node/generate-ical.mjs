@@ -33,8 +33,9 @@ CALSCALE:GREGORIAN
     commemorativeDays.forEach((day) => {
       const dateStr = formatDate(day.date); // Format date for iCal
 
-      icsContent += `BEGIN:VEVENT
-        UID:${day.name.replace(/\s+/g, "")}-${year}@cyf.io 
+  
+icsContent += `BEGIN:VEVENT
+UID:${day.name.replace(/\s+/g, "")}-${year}@cyf.io 
 DTSTAMP:${formatDate(new Date())}T000000Z
 SUMMARY:${day.name}
 DTSTART;VALUE=DATE:${dateStr}
@@ -43,6 +44,9 @@ END:VEVENT
 `;
     });
   }
+
+
+
 
   // Close the VCALENDAR
   icsContent += `END:VCALENDAR

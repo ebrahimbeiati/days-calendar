@@ -5,10 +5,11 @@ const todayDateEl = document.getElementById("today-date");
 
 // Current month/year
 let today = new Date();
+// Use local time for display, but calendar calculations will use UTC to avoid timezone issues
 const todayUTC = {
-  year: today.getUTCFullYear(),
-  month: today.getUTCMonth(),
-  day: today.getUTCDate(),
+  year: today.getFullYear(),
+  month: today.getMonth(),
+  day: today.getDate(),
 };
 
 // show month and year
@@ -65,6 +66,7 @@ export function generateCalendar(month, year, commemorativeDays = []) {
   dayOfWeekNames.forEach((dayName) => {
     const headerCell = document.createElement("div");
     headerCell.className = "day-header";
+    //shows a 3‑letter abbreviation e.g. "Mon" for Monday, "Tue" for Tuesday.
     headerCell.textContent = dayName.slice(0, 3);
     headerCell.setAttribute("role", "columnheader");
     headerCell.setAttribute("aria-label", dayName);
@@ -77,11 +79,12 @@ export function generateCalendar(month, year, commemorativeDays = []) {
   const firstDay = new Date(Date.UTC(year, month, 1));
   const firstWeekday = firstDay.getUTCDay();
 
-  // Number of days in month
+  //This uses the “day 0 of next month” trick to get the last day of the current month.
   const lastDay = new Date(Date.UTC(year, month + 1, 0));
   const daysInMonth = lastDay.getUTCDate();
 
-  // Total cells needed
+  // These calculations determine: how many empty cells appear before day 1, and 
+  // how many empty cells appear after the last day
   const totalCells = firstWeekday + daysInMonth;
   const trailingEmpty = (7 - (totalCells % 7)) % 7;
  
@@ -90,7 +93,7 @@ export function generateCalendar(month, year, commemorativeDays = []) {
   let cellCount = 0;
   let currentRow = null;
 
-  // Leading empty days
+  // This fills the first row with blank cells until the first real date should appear.
   for (let i = 0; i < firstWeekday; i++) {
     if (cellCount % 7 === 0) {
       currentRow = document.createElement("div");
@@ -107,6 +110,7 @@ export function generateCalendar(month, year, commemorativeDays = []) {
 
   // Fill actual days
   for (let day = 1; day <= daysInMonth; day++) {
+    //Every 7 cells, a new row begins.
     if (cellCount % 7 === 0) {
       currentRow = document.createElement("div");
       currentRow.setAttribute("role", "row");
@@ -125,7 +129,8 @@ export function generateCalendar(month, year, commemorativeDays = []) {
       dayCell.classList.add("today");
     }
 
-    // Mark commemorative days and add their names
+    //This checks whether the current cell matches any commemorative day. 
+    // If it does, it adds a special class and includes the commemorative day’s name in the cell.
     const commemorativeDay = commemorativeDays.find(
       (commDay) =>
         commDay.date.getUTCDate() === day &&
@@ -150,7 +155,7 @@ export function generateCalendar(month, year, commemorativeDays = []) {
     cellCount++;
   }
 
-  // Trailing empty days
+  // This fills the last row so the grid is complete.
   for (let i = 0; i < trailingEmpty; i++) {
     if (cellCount % 7 === 0) {
       currentRow = document.createElement("div");
